@@ -1,0 +1,16 @@
+package Day8;
+
+public class Peak {
+    public int peakIndexInMountainArray(int[] arr) {
+        int left=0;
+        int right=arr.length-1;
+        while(left<=right)
+        {
+            int mid=(left+right)/2;
+            if(arr[mid+1]<arr[mid] && arr[mid-1]<arr[mid]) return mid;
+            else if(arr[mid+1]<arr[mid]) right=mid;
+            else left=mid+1;
+        }
+        return left;
+    }
+}
